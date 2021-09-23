@@ -2,55 +2,42 @@
 /*             MIXINS                */
 /*************************************/
 
-// Breakpoints
-
-@mixin breakpoint($screen) {
-  @media screen and (min-width: map-get($map: $breakpoints, $key: $screen)) {
-    @content;
-  }
-}
-
 @mixin font-heading-1 {
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 83.33px;
-  margin: 0;
-}
-
-@mixin font-heading-2 {
-  font-weight: 400;
-  font-size: $base-fontSize * 2;
+  font-family: "DM Sans";
+  font-weight: 700;
+  font-size: 38px;
   line-height: 46.87px;
   margin: 0;
+  color: #d04f4f;
 }
 
-@mixin font-heading-3 {
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 31.25px;
-  margin: 0;
-}
-
-@mixin font-body-large {
+@mixin font-body-extra-large {
   font-weight: 700;
   font-size: $base-fontSize;
-  line-height: 23,44px;
+  line-height: 21.6px;
 }
 
 @mixin font-body {
   font-weight: 400;
-  font-size: 13px;
-  line-height: 16.93px;
+  font-size: $base-fontSize;
+  line-height: 21.6px;
 }
 
 @mixin font-body-small {
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 15.62px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.8px;
 }
 
 @mixin font-body-extra-small {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14.4px;
+}
+
+@mixin font-text {
+  font-family: "Roboto";
   font-weight: 400;
-  font-size: 13px;
-  line-height: 13.02px;
+  font-size: 12px;
+  line-height: 12px;
 }
