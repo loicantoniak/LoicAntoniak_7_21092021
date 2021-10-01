@@ -10,7 +10,11 @@ export default function deleteTag() {
     const text = tag.querySelector(".badge-text").innerHTML;
 
     closeBtn.addEventListener("click", function () {
-      tags = tags.filter((tag) => tag.name !== text);
+      const index = tags.findIndex((tag) => tag.name === text);
+
+      if (index > -1) {
+        tags.splice(index, 1);
+      }
 
       filteringByTag(recipes, tags);
     });

@@ -28,7 +28,7 @@ export class Dropdown {
         </button>
         <ul class="dropdown-menu color-${this.id}">`;
 
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 30; i++) {
       if (this.items[i] !== undefined) {
         html += `<li class="dropdown-item">${this.items[i]}</li>`;
       }

@@ -1,4 +1,5 @@
 import { updateRecipes } from "./index.js";
+import { recipes as allRecipes } from "./data/recipes.js";
 
 /**
  * Filtre les recettes par rapport aux tags
@@ -6,6 +7,10 @@ import { updateRecipes } from "./index.js";
  */
 export default function filteringByTag(recipes, tags) {
   let newRecipes = [];
+
+  if (tags.length === 0) {
+    newRecipes = allRecipes;
+  }
 
   tags.forEach((tag) => {
     switch (tag.id) {
@@ -22,9 +27,8 @@ export default function filteringByTag(recipes, tags) {
         newRecipes = [];
         break;
     }
-
   });
-  updateRecipes(newRecipes, tags);
+  updateRecipes(newRecipes);
 }
 
 /**
