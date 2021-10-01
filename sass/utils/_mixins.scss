@@ -2,15 +2,6 @@
 /*             MIXINS                */
 /*************************************/
 
-@mixin font-heading-1 {
-  font-family: "DM Sans";
-  font-weight: 700;
-  font-size: 38px;
-  line-height: 46.87px;
-  margin: 0;
-  color: #d04f4f;
-}
-
 @mixin font-body-extra-large {
   font-weight: 700;
   font-size: $base-fontSize;

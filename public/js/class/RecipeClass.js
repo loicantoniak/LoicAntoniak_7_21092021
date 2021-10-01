@@ -20,7 +20,7 @@ export class Recipe {
   }
 
   /**
-   * Create recipe's Dom Elements
+   * Création les élements Dom pour une recette
    */
   setRecipeDomElts = () => {
     const recipesContainer = document.querySelector("#main");

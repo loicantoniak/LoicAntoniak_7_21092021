@@ -7,10 +7,6 @@ h3 {
   margin: 0 !important;
 }
 
-h1 {
-  @include font-heading-1;
-}
-
 .body-extra-small {
   @include font-body-extra-small;
 }

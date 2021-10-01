@@ -1,6 +1,5 @@
 // Utils
 @import "./utils/variables";
-@import "./utils/functions";
 @import "./utils/mixins";
 
 // Vendors
@@ -11,6 +10,9 @@
 
 // Components
 @import "./components/card";
+@import "./components/dropdown";
+@import "./components/badge"
+
 // Layout
 
 // Pages
