@@ -1,0 +1,29 @@
+.principal-search {
+  margin: 1.5rem 0;
+  .input-group {
+    height: 69px;
+    &-text {
+      background: $color-lightgrey !important;
+      border: none;
+      i {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  input {
+    @include font-body-extra-large;
+    background: $color-lightgrey !important;
+    height: inherit;
+    border: none;
+    outline: none;
+    color: $color-black;
+    padding: 15px 0px 15px 23px;
+    &::placeholder {
+      color: $color-darkgrey;
+    }
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}

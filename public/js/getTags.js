@@ -19,5 +19,3 @@ export default function getTags(recipes) {
     });
   });
 }
-
-// supprimer le tag dont le nom est égal au contenu du text du badge cliqué
