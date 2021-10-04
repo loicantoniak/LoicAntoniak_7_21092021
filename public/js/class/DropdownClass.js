@@ -40,7 +40,9 @@ export class Dropdown {
     //   });
     // }
 
-    html += `</div>
+    html += `
+        </ul>
+        <ul class="dropdown-menu dropdown-close color-${this.id}"></ul>
         </div>`;
 
     nav.insertAdjacentHTML("beforeend", html);

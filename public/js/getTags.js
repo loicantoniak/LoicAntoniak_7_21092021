@@ -1,7 +1,6 @@
 import filteringByTag from "./filteringByTag.js";
 import { tags } from "./lib/constants.js";
 
-
 /**
  *  Ajout l'élément sélectionné à la liste des tags
  */
@@ -15,7 +14,6 @@ export default function getTags(recipes) {
       item.addEventListener("click", function () {
         const newTag = { id: id, name: content };
         tags.push(newTag);
-        // filteringByTag(recipes, newTag);
         filteringByTag(recipes, tags);
       });
     });

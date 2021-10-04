@@ -10,5 +10,3 @@ export const dropdownList = [
 ];
 
 export let tags = [];
-
-

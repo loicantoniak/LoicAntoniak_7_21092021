@@ -13,6 +13,7 @@ import customDropdown from "./customDropdown.js";
 import getTags from "./getTags.js";
 import deleteOldElements from "./deleteOldElements.js";
 import deleteTag from "./deleteTag.js";
+import search from "./search.js";
 
 
 updateRecipes(recipes);
@@ -23,6 +24,7 @@ export function updateRecipes(recipes) {
   getRecipesList(recipes);
   getDropdownList(dropdownList);
   customDropdown();
+  search(recipes)
   getTags(recipes);
   getTagsList(tags);
   deleteTag();

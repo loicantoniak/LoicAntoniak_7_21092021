@@ -4,6 +4,32 @@
   height: 69px;
   border-radius: $border-radius;
   // transition: width 0.3s;
+  &.show {
+    .dropdown-menu.show {
+      transform: translate3d(0px, 64px, 0) !important;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      height: auto;
+    }
+    .dropdown-close {
+      display: none !important;
+    }
+  }
+
+  .dropdown-menu {
+    border: none;
+    margin: 0;
+    top: 94%;
+  }
+
+  .dropdown-close {
+    width: 270px;
+    padding: 0;
+    .dropdown-item:last-of-type {
+      margin-bottom: 1rem;
+    }
+  }
 
   input {
     @include font-body-extra-large;
@@ -50,18 +76,6 @@
 
   .dropdown-toggle-open::after {
     content: "\f077";
-  }
-
-  .dropdown-menu {
-    transform: translate3d(0px, 64px, 0) !important;
-    border: none;
-    margin: 0;
-    &.show {
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      height: auto;
-    }
   }
 
   .dropdown-item {
