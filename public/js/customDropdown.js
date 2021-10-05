@@ -17,12 +17,16 @@ export default function customDropdown() {
         dropdown.style.width = "667px";
         menu.style.width = "667px";
         secondDropdown.style.display = "none";
+        input.setAttribute("disabled", true);
+        input.setAttribute("placeholder", `Rechercher un ${expandPlaceholder}`);
+        input.style.width = "230px";
       } else {
         button.classList.remove("dropdown-toggle-open");
         dropdown.style.width = "170px";
         menu.style.width = "170px";
         secondDropdown.style.display = "none";
         input.setAttribute("placeholder", `${placeholder}`);
+        input.removeAttribute("disabled");
       }
     });
 
@@ -31,7 +35,6 @@ export default function customDropdown() {
         width = dropdown.classList.contains("show") ? "669px" : "270px";
         dropdown.style.width = width;
         secondDropdown.style.display = "inline-block";
-
         menu.style.width = width;
         input.style.width = "230px";
         input.setAttribute("placeholder", `Rechercher un ${expandPlaceholder}`);
@@ -42,6 +45,7 @@ export default function customDropdown() {
         input.style.width = width;
         input.setAttribute("placeholder", `${placeholder}`);
         secondDropdown.style.display = "none";
+        input.removeAttribute("disabled");
       }
     });
   });
