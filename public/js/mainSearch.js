@@ -1,23 +1,27 @@
-import { updateRecipes } from "./index.js";
+import { updateRecipes, newRecipes as data } from "./index.js";
+import { recipes as allRecipes } from "./data/recipes.js";
+import { getResearch, getSearchByTag } from "./lib/functions.js";
+import { tags } from "./lib/constants.js";
 
-export default function mainSearch(recipes) {
-    let newRecipes = [];
-  const search = document.querySelector(".principal-search");
-  const input = search.querySelector("input");
+const input = document.querySelector(".main-search");
 
-  input.addEventListener("keyup", function () {
-    let value = input.value;
+input.addEventListener("input", function () {
+  let value = input.value;
+  mainSearch(allRecipes, value);
+});
 
-    if (value.length > 2) {
-    //    const r = recipes.forEach(recipe => {
-    //         recipe.ingredients.map((ingredient) => ingredient.ingredient === "Lait")
-    //     });
+export default function mainSearch(recipes, value) {
+  const message = document.querySelector(".noEntry");
 
-    //     console.log(r)
-    } 
+  let newRecipes = getSearchByTag(recipes, tags, allRecipes);
 
+  if (value.length > 2) {
+    newRecipes = getResearch(newRecipes, value);
+  }
 
+  newRecipes.length === 0
+    ? (message.style.display = "block")
+    : (message.style.display = "none");
 
-    // updateRecipes(newRecipes)
-  });
+  updateRecipes(newRecipes);
 }

@@ -1,6 +1,6 @@
 import filteringByTag from "./filteringByTag.js";
 import { tags } from "./lib/constants.js";
-import { recipes } from "./data/recipes.js";
+import { newRecipes } from "./index.js";
 
 export default function deleteTag() {
   const tagsList = document.querySelectorAll(".badge");
@@ -16,7 +16,7 @@ export default function deleteTag() {
         tags.splice(index, 1);
       }
 
-      filteringByTag(recipes, tags);
+      filteringByTag(newRecipes, tags);
     });
   });
 }

@@ -1,7 +1,7 @@
 "use strict";
 
 // Data
-import { recipes } from "./data/recipes.js";
+import { recipes as data } from "./data/recipes.js";
 // Class
 import { Recipe } from "./class/RecipeClass.js";
 import { Dropdown } from "./class/DropdownClass.js";
@@ -16,8 +16,9 @@ import deleteTag from "./deleteTag.js";
 import search from "./search.js";
 import mainSearch from "./mainSearch.js";
 
+export let newRecipes = [...data]
 
-updateRecipes(recipes);
+updateRecipes(newRecipes);
 
 export function updateRecipes(recipes) {
   deleteOldElements();
@@ -25,10 +26,10 @@ export function updateRecipes(recipes) {
   getRecipesList(recipes);
   getDropdownList(dropdownList);
   customDropdown();
-  mainSearch(recipes);
   search(recipes)
   getTags(recipes);
   getTagsList(tags);
+  // mainSearch(recipes);
   deleteTag();
 }
 

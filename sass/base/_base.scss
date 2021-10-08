@@ -14,3 +14,10 @@ body {
 .color-ustensil {
   background-color: $color-red !important;
 }
+
+.noEntry {
+  display: none ;
+  text-align: center;
+  margin-top: 12rem;
+  font-size: 20px;
+}
