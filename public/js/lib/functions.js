@@ -33,7 +33,9 @@ export function getRecipesByIngredient(recipes, ingredient) {
  * @returns
  */
 export function getRecipesByAppliance(recipes, appliance) {
-  return recipes.filter((recipe) => recipe.appliance === appliance);
+  return recipes.filter(
+    (recipe) => recipe.appliance.toLowerCase() === appliance
+  );
 }
 
 /**
@@ -54,27 +56,48 @@ export function getRecipesByUstensil(recipes, ustensil) {
  */
 export function getResearch(recipes, string) {
   let newRecipes = [];
-  for (let recipe of recipes) {
+  for (let i = 0; i < recipes.length; i++) {
     if (
-      recipe.name.toLowerCase().includes(string) ||
-      recipe.description.toLowerCase().includes(string) ||
-      recipe.ingredients.filter((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(string)
-      ).length > 0
+      researchName(recipes[i], string) ||
+      researchDescription(recipes[i], string) ||
+      researchIngredient(recipes[i], string)
     ) {
-      newRecipes.push(recipe);
+      newRecipes.push(recipes[i]);
     }
   }
-
   return newRecipes;
+}
+
+function researchName(recipe, name) {
+  if (recipe.name.toLowerCase().includes(name.toLowerCase())) {
+    return recipe;
+  }
+}
+
+function researchDescription(recipe, name) {
+  if (recipe.description.toLowerCase().includes(name.toLowerCase())) {
+    return recipe;
+  }
+}
+
+function researchIngredient(recipe, name) {
+  for (let i = 0; i < recipe.ingredients.length; i++) {
+    if (
+      recipe.ingredients[i].ingredient
+        .toLowerCase()
+        .includes(name.toLowerCase())
+    ) {
+      return recipe;
+    }
+  }
 }
 
 /**
  * Recherche les recettes par tags présents
- * @param {array} recipes 
- * @param {array} tags 
- * @param {array} allRecipes 
- * @returns 
+ * @param {array} recipes
+ * @param {array} tags
+ * @param {array} allRecipes
+ * @returns
  */
 export function getSearchByTag(recipes, tags, allRecipes) {
   let newRecipes = [];
