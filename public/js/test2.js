@@ -1792,4 +1792,4 @@ function getResearch(recipes, string) {
   return newRecipes;
 }
 
-getResearch(recipes, "Lait de coco".toLowerCase());
+getResearch(recipes, "Oignon".toLowerCase());

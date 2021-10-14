@@ -1774,29 +1774,31 @@ const recipes = [
   },
 ];
 
+let newRecipes = [];
+
 function getResearch(recipes, string) {
-  let newRecipes = [];
   for (let i = 0; i < recipes.length; i++) {
-    if (
-      researchName(recipes[i], string) ||
-      researchDescription(recipes[i], string) ||
-      researchIngredient(recipes[i], string)
-    ) {
-      newRecipes.push(recipes[i]);
-    }
+    researchName(recipes[i], string);
+    researchDescription(recipes[i], string);
+    researchIngredient(recipes[i], string);
   }
   return newRecipes;
 }
 
 function researchName(recipe, name) {
   if (recipe.name.toLowerCase().includes(name.toLowerCase())) {
-    return recipe;
+    newRecipes.push(recipe);
   }
 }
 
 function researchDescription(recipe, name) {
   if (recipe.description.toLowerCase().includes(name.toLowerCase())) {
-    return recipe;
+    if (newRecipes.length === 0) {
+      newRecipes.push(recipe);
+    }
+    if (newRecipes.filter((r) => r.id === recipe.id).length === 0) {
+      newRecipes.push(recipe);
+    }
   }
 }
 
@@ -1807,9 +1809,14 @@ function researchIngredient(recipe, name) {
         .toLowerCase()
         .includes(name.toLowerCase())
     ) {
-      return recipe;
+      if (newRecipes.length === 0) {
+        newRecipes.push(recipe);
+      }
+      if (newRecipes.filter((r) => r.id === recipe.id).length === 0) {
+        newRecipes.push(recipe);
+      }
     }
   }
 }
 
-getResearch(recipes, "Lait de coco");
+getResearch(recipes, "Oignon");

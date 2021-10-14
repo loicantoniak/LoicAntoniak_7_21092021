@@ -1,7 +1,7 @@
 "use strict";
 
 // Data
-import { recipes as data } from "./data/recipes.js";
+import { recipes as data, recipes } from "./data/recipes.js";
 // Class
 import { Recipe } from "./class/RecipeClass.js";
 import { Dropdown } from "./class/DropdownClass.js";
@@ -72,3 +72,5 @@ function getTagsList(tags) {
     new Tag(tag.id, tag.name).setTagDomElts();
   });
 }
+
+
