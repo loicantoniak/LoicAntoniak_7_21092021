@@ -16,7 +16,7 @@ export default function mainSearch(recipes, value) {
   let newRecipes = getSearchByTag(recipes, tags, allRecipes);
 
   if (value.length > 2) {
-    newRecipes = getResearch(newRecipes, value);
+    newRecipes = getResearch(newRecipes, value.toLowerCase());
   }
 
   newRecipes.length === 0

@@ -56,10 +56,11 @@ export function getResearch(recipes, string) {
   let newRecipes = [];
   for (let recipe of recipes) {
     if (
-      recipe.name.toLowerCase().includes(string) ||
-      recipe.description.toLowerCase().includes(string) ||
-      recipe.ingredients.filter((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(string)
+      recipe.name.toLowerCase().indexOf(string) !== -1 ||
+      recipe.description.toLowerCase().indexOf(string) !== -1 ||
+      recipe.ingredients.filter(
+        (ingredient) =>
+          ingredient.ingredient.toLowerCase().indexOf(string) !== -1
       ).length > 0
     ) {
       newRecipes.push(recipe);
@@ -71,10 +72,10 @@ export function getResearch(recipes, string) {
 
 /**
  * Recherche les recettes par tags présents
- * @param {array} recipes 
- * @param {array} tags 
- * @param {array} allRecipes 
- * @returns 
+ * @param {array} recipes
+ * @param {array} tags
+ * @param {array} allRecipes
+ * @returns
  */
 export function getSearchByTag(recipes, tags, allRecipes) {
   let newRecipes = [];
