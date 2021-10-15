@@ -1,4 +1,4 @@
-import { updateRecipes, newRecipes as data } from "./index.js";
+import { updateRecipes } from "./index.js";
 import { recipes as allRecipes } from "./data/recipes.js";
 import { getResearch, getSearchByTag } from "./lib/functions.js";
 import { tags } from "./lib/constants.js";
@@ -7,7 +7,8 @@ const input = document.querySelector(".main-search");
 
 input.addEventListener("input", function () {
   let value = input.value;
-  mainSearch(allRecipes, value);
+  const newRecipes = mainSearch(allRecipes, value);
+  updateRecipes(newRecipes);
 });
 
 export default function mainSearch(recipes, value) {
@@ -23,5 +24,5 @@ export default function mainSearch(recipes, value) {
     ? (message.style.display = "block")
     : (message.style.display = "none");
 
-  updateRecipes(newRecipes);
+  return newRecipes;
 }

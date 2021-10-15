@@ -1,9 +1,11 @@
-import filteringByTag from "./filteringByTag.js";
 import { tags } from "./lib/constants.js";
-import { newRecipes } from "./index.js";
+import { recipes as allRecipes } from "./data/recipes.js";
+import { newRecipes as data, updateRecipes } from "./index.js";
+import mainSearch from "./mainSearch.js";
 
 export default function deleteTag() {
   const tagsList = document.querySelectorAll(".badge");
+  const input = document.querySelector(".main-search");
 
   tagsList.forEach((tag) => {
     const closeBtn = tag.querySelector(".fa-times-circle");
@@ -16,7 +18,13 @@ export default function deleteTag() {
         tags.splice(index, 1);
       }
 
-      filteringByTag(newRecipes, tags);
+      const newRecipes = mainSearch(allRecipes, input.value);
+
+      data.splice(0, data.length);
+      data.push(...newRecipes);
+    
+      updateRecipes(data)
+
     });
   });
 }

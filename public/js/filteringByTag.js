@@ -7,11 +7,10 @@ import { getSearchByTag } from "./lib/functions.js";
  * @param {array} tags
  */
 export default function filteringByTag(recipes, tags) {
-  let newRecipes = getSearchByTag(recipes, tags, allRecipes)
-  
-  data.splice(0, data.length)
-  data.push(...newRecipes)
+  let newRecipes = getSearchByTag(recipes, tags, allRecipes);
+
+  data.splice(0, data.length);
+  data.push(...newRecipes);
 
   updateRecipes(data);
 }
-

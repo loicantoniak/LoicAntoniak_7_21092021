@@ -33,7 +33,9 @@ export function getRecipesByIngredient(recipes, ingredient) {
  * @returns
  */
 export function getRecipesByAppliance(recipes, appliance) {
-  return recipes.filter((recipe) => recipe.appliance === appliance);
+  return recipes.filter(
+    (recipe) => recipe.appliance.toLowerCase() === appliance.toLowerCase()
+  );
 }
 
 /**
@@ -69,6 +71,7 @@ export function getResearch(recipes, string) {
 
   return newRecipes;
 }
+
 
 /**
  * Recherche les recettes par tags présents
