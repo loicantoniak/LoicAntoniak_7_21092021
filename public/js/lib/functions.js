@@ -34,7 +34,7 @@ export function getRecipesByIngredient(recipes, ingredient) {
  */
 export function getRecipesByAppliance(recipes, appliance) {
   return recipes.filter(
-    (recipe) => recipe.appliance.toLowerCase() === appliance
+    (recipe) => recipe.appliance.toLowerCase() === appliance.toLowerCase()
   );
 }
 
