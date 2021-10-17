@@ -1,5 +1,4 @@
 import { updateRecipes, newRecipes as data } from "./index.js";
-import { recipes as allRecipes } from "./data/recipes.js";
 import { getSearchByTag } from "./lib/functions.js";
 
 /**
@@ -7,7 +6,7 @@ import { getSearchByTag } from "./lib/functions.js";
  * @param {array} tags
  */
 export default function filteringByTag(recipes, tags) {
-  let newRecipes = getSearchByTag(recipes, tags, allRecipes);
+  let newRecipes = getSearchByTag(recipes, tags);
 
   data.splice(0, data.length);
   data.push(...newRecipes);

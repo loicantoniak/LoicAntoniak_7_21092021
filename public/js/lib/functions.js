@@ -1,3 +1,5 @@
+import { recipes as allRecipes } from "../data/recipes.js";
+
 /**
  * Supprime les enfants d'un élément donné
  * @param {node} element
@@ -77,10 +79,9 @@ export function getResearch(recipes, string) {
  * Recherche les recettes par tags présents
  * @param {array} recipes
  * @param {array} tags
- * @param {array} allRecipes
  * @returns
  */
-export function getSearchByTag(recipes, tags, allRecipes) {
+export function getSearchByTag(recipes, tags) {
   let newRecipes = [];
 
   if (tags.length === 0) {
